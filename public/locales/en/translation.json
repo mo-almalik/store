@@ -1,6 +1,14 @@
 {
     "common" :{
         "name":"Smart Zone",
-        "login" :"login"
+        "login" :"login",
+        "search" :"search...",
+        "wishlist":"wishlist",
+        "cart" :"cart"
+    },
+    "navbar" :{
+        "home" :"home",
+        "account":"account",
+        "cart":"cart"
     }
 }
