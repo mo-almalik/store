@@ -28,8 +28,11 @@ html,body{
 }
 
 @utility container  {
-  max-width:1320px;
+  max-width:90%;
   padding:0px 20px;
   margin:auto;
 }
 
+.title {
+  @apply text-lg font-bold text-black capitalize
+}

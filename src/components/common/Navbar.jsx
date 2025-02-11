@@ -57,6 +57,7 @@ function Navbar() {
         </div>
       </div>
 
+{/* mobile menu */}
       <div className="md:hidden bg-light py-4 fixed bottom-0 w-full px-10 ">
         <div className="flex items-center justify-between ">
           <NavLink

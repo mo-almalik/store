@@ -11,7 +11,7 @@ function LanguageSwitcher() {
     const languageText = oppositeLanguage === 'en' ?   <img src={enicon} alt='English' width={30} /> : <img src={aricon} alt='العربية' width={30} />;
   return (
     <div className={'relative w-full'}>
-            <button onClick={() => changeLanguage(oppositeLanguage)} className={'flex items-center '}>
+            <button  onClick={() => changeLanguage(oppositeLanguage)} className={'flex items-center cursor-pointer'}>
                 {languageText}
             </button>
         </div>

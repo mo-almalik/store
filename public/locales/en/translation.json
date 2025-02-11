@@ -4,11 +4,27 @@
         "login" :"login",
         "search" :"search...",
         "wishlist":"wishlist",
-        "cart" :"cart"
+        "cart" :"cart",
+        "shpoing" :"shpoing now"
     },
     "navbar" :{
         "home" :"home",
         "account":"account",
         "cart":"cart"
+    },
+    "hero":{
+        "title":"Step into the Future of Shopping",
+        "free":"Free Shipping",
+        "free-text":"Fast and free delivery nationwide",
+        "payment":"Secure Payment",
+        "payment-text":"Encrypted and secure payments",
+        "quality":"Quality Assurance",
+        "quality-text":"14-day return or exchange guarantee",
+        "suport":"24/7 Support",
+        "suport-text":"Our team is ready to assist you"
+    },
+    "category":{
+        "all" :"category"
     }
+
 }
