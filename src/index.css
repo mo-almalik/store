@@ -11,8 +11,17 @@
 }
 .ltr body{
     font-family: "Montserrat", serif;  
+    font-weight: 500;
 }
 
 .rtl body{
   font-family: "Tajawal", serif;
+  font-weight: 500;
+}
+
+/* theme */
+@theme {
+  --color-main :#506BFA;
+  --color-black :#161616 ;
+  --color-dark :#32353C;
 }

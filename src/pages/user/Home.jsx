@@ -3,8 +3,8 @@ import React from 'react'
 function Home() {
   
   return (
-    <div>User Home
-     <h1>المستخدم الرئيسية</h1>
+    <div >User Home
+     <h1 className='text-main bg-dark'>المستخدم الرئيسية</h1>
     </div>
   )
 }
