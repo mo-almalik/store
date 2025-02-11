@@ -31,10 +31,10 @@ function Hero() {
         </div>
       </div>
 
-      <div className="bg-light py-6 ">
+      <div className="bg-light py-8 ">
         <div className="grid grid-cols-2 md:grid-cols-4 container text-center gap-5">
           <div className="flex flex-col items-center ">
-          <div className="bg-main/90 p-2 rounded-lg text-light">
+          <div className="bg-main/90 p-2 rounded-lg text-light shadow-main/50 drop-shadow-lg">
             <TbTruckDelivery  className="size-6"  />
           </div>
             <div>
@@ -44,7 +44,7 @@ function Hero() {
           </div>
 
           <div className="flex flex-col items-center ">
-          <div className="bg-main/90 p-2 rounded-lg text-light">
+          <div className="bg-main/90 p-2 rounded-lg text-light shadow-main/50 drop-shadow-lg">
             <TbAward  className="size-6"  />
           </div>
          
@@ -55,7 +55,7 @@ function Hero() {
           </div>
 
           <div className="flex flex-col items-center ">
-          <div className="bg-main/90 p-2 rounded-lg text-light">
+          <div className="bg-main/90 p-2 rounded-lg text-light shadow-main/50 drop-shadow-lg">
             <TbReplace  className="size-6"  />
           </div>
             
@@ -66,7 +66,7 @@ function Hero() {
           </div>
 
           <div className="flex flex-col items-center ">
-          <div className="bg-main/90 p-2 rounded-lg text-light">
+          <div className="bg-main/90 p-2 rounded-lg text-light shadow-main/50 drop-shadow-lg">
             <TbLockAccess  className="size-6"  />
           </div>
          

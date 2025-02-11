@@ -36,3 +36,6 @@ html,body{
 .title {
   @apply text-lg font-bold text-black capitalize
 }
+button {
+  @apply capitalize
+}
