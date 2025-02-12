@@ -44,7 +44,7 @@ function Navbar() {
             <div className="hidden md:block">
               <div className="flex items-center">
                 <div className="relative">
-                  <TbShoppingBag className="text-[#C4C4C4] rtl:-right-3C4C4] size-7" />
+                  <TbShoppingBag className="text-[#C4C4C4] rtl:-right-3  size-7" />
                   {/* count cart */}
                   <div className=" absolute text-white -top-4 rtl:-right-3 ltr:right-3 w-6 h-6 rounded-full flex items-center justify-center bg-main">
                     0
@@ -58,7 +58,7 @@ function Navbar() {
       </div>
 
 {/* mobile menu */}
-      <div className="md:hidden bg-light py-4 fixed bottom-0 w-full px-10 ">
+      <div className="md:hidden bg-light py-4 fixed bottom-0 w-full px-10 z-50">
         <div className="flex items-center justify-between ">
           <NavLink
             to="/"

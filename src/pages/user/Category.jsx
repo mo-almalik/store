@@ -26,7 +26,7 @@ function Category() {
          <div className='flex flex-wrap items-center gap-2 md:gap-5'>
 {data.data?.categories?.map((el, index) => {
     const imageUrl = `${baseUrl}/${el.image}`;
-    console.log("Image URL:", imageUrl);
+
 
     return (
         <div key={index} className=' rounded-md'>
