@@ -41,6 +41,11 @@
         "security":"Safety ",
         "speed":"Speed",
         "more" :"Read More"
+    },
+    "cta":{
+        "title":"Transform Your Home with Elegant & Comfortable Furniture!",
+        "text":"Discover our exclusive collection of high-quality furniture, designed to match your style and needs. Make your home more comfortable and stylish today!",
+        "btn":"Browse Our Catalog"
     }
 
 }

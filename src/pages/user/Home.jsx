@@ -3,15 +3,19 @@ import Hero from '../../components/Hero'
 import Category from './Category'
 import ProdactsPage from './ProdactsPage'
 import AboutUs from './AboutUs'
+import CTA from '../../components/CTA'
+
 
 function Home() {
   
   return <>
-  <main className='pb-20 md:pb0'>
+  <main>
         <Hero />
         <Category />
         <ProdactsPage />
         <AboutUs />
+        <CTA />
+       
   </main>
 
   </>
