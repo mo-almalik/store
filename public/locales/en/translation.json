@@ -27,7 +27,20 @@
         "all" :"category"
     },
     "product":{
-        "title":"products"
+        "title":"products",
+         "all":"view all"
+    },
+    "about":{
+        "title":"Why Choose Us ?",
+        "about-text":"At Smart Zone, we provide the finest furniture designs that combine elegance and comfort.",
+        "one":"Unique and modern designs",
+        "two":"High quality and durability",
+        "three":"Excellent customer service",
+        "four":"Competitive prices and exclusive offers",
+        "quality":"Quality",
+        "security":"Security",
+        "speed":"Speed",
+        "more" :"Read More"
     }
 
 }

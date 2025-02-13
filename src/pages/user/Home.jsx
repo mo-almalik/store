@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '../../components/Hero'
 import Category from './Category'
 import ProdactsPage from './ProdactsPage'
+import AboutUs from './AboutUs'
 
 function Home() {
   
@@ -10,6 +11,7 @@ function Home() {
         <Hero />
         <Category />
         <ProdactsPage />
+        <AboutUs />
   </main>
 
   </>

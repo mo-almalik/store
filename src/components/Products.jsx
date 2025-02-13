@@ -4,7 +4,7 @@ import { Image, Skeleton } from "antd";
 import { TbEye, TbHeart, TbShoppingBag } from "react-icons/tb";
 import currency from "currency.js";
 
-function Products({data,isLoading,isError, error,language,t}) {
+function Products({data,isLoading,isError, error,language,limit=15}) {
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const formatPrice = (price) => {
@@ -25,7 +25,7 @@ function Products({data,isLoading,isError, error,language,t}) {
     <>
 
         <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-5">
-          {data?.map((el) => {
+          {data?.slice(0,limit).map((el) => {
             const imageUrl = `${baseUrl}/${el.coverImage}`;
             return (
               <div
