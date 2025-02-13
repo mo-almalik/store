@@ -7,7 +7,7 @@ const baseQuery = fetchBaseQuery({
 })
 
 
-export const productSlice = createApi({
+export const productApi = createApi({
   reducerPath:"product",
   baseQuery,
   tagTypes:["product"],
@@ -26,4 +26,4 @@ export const productSlice = createApi({
 })
 
 
-export const {useGetProductsQuery} = productSlice
+export const {useGetProductsQuery} = productApi

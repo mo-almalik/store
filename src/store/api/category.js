@@ -6,7 +6,7 @@ const baseQuery = fetchBaseQuery({
     baseUrl: `${API}`,
 })
 
-export const categorySlice = createApi({
+export const categoryApi = createApi({
     reducerPath :'category',
     baseQuery,
     tagTypes:["category"],
@@ -25,4 +25,4 @@ export const categorySlice = createApi({
 
 })
 
-export const {useGetCategoriesQuery} = categorySlice
+export const {useGetCategoriesQuery} = categoryApi

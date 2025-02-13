@@ -10,9 +10,12 @@ import {
 } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useFetchCartsQuery } from "../../store/api/cart";
 
 function Navbar() {
   const { t } = useTranslation();
+  const {data,isLoading} = useFetchCartsQuery()
+  
   return (
     <>
       <div className="bg-light py-5">
