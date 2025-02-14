@@ -11,12 +11,18 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useFetchCartsQuery } from "../../store/api/cart";
+import { useAuth } from "../../context/authContext";
 
 function Navbar() {
   const { t } = useTranslation();
-  // const {data,isLoading} = useFetchCartsQuery()
+  const {isAuthenticated} = useAuth()
 
-  
+  const { data, isLoading } = useFetchCartsQuery(undefined, {
+    skip: !isAuthenticated,  
+  });
+
+  const cartCount = isAuthenticated && data ? data?.data?.items.length : 0;
+
   
   return (
     <>
@@ -52,7 +58,7 @@ function Navbar() {
                   <TbShoppingBag className="text-[#C4C4C4] rtl:-right-3  size-7" />
                   {/* count cart */}
                   <div className=" absolute text-white -top-4 rtl:-right-3 ltr:right-3 w-6 h-6 rounded-full flex items-center justify-center bg-main">
-                    0
+                   {cartCount}
                   </div>
                 </div>
                 <div className="md:hidden lg:block">{t("common.cart")}</div>

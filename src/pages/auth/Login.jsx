@@ -29,6 +29,7 @@ function Login() {
         const res = await login(data).unwrap()
         // console.log(res?.data);
         dispatch(setCredentials(res))
+
     }catch(err){
         // console.error(err) 
         toast.error(err.data?.message)

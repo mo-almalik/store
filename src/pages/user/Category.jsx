@@ -10,6 +10,7 @@ function Category() {
     const { language } = useAppContext();
     const { data, isLoading, isError, error } = useGetCategoriesQuery({});
 
+  
     if (isLoading) {
         return <div>Loading...</div>;
     }
