@@ -30,7 +30,7 @@ function TopNav() {
               <span>
                 <TbUser />
               </span>
-              <Link to={"/"}>{t("common.login")}</Link>
+              <Link to={"/login"}>{t("common.login")}</Link>
             </div>
 
             <div>

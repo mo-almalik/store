@@ -8,22 +8,24 @@ import {
   RiShoppingCart2Fill,
   RiUser2Fill,
 } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useFetchCartsQuery } from "../../store/api/cart";
 
 function Navbar() {
   const { t } = useTranslation();
   const {data,isLoading} = useFetchCartsQuery()
+
+  
   
   return (
     <>
       <div className="bg-light py-5">
         <div className="container flex items-center justify-between gap-5">
           <div className="w-full md:w-[33%]">
-            <h2 className="text-black font-bold text-2xl">
+            <Link to={'/'} className="text-black font-bold text-2xl">
               {t("common.name")}
-            </h2>
+            </Link>
           </div>
           <div className="w-full hidden md:block">
             <Search placeholder={t("common.search")} />
