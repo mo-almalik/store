@@ -4,7 +4,7 @@ import { Image, Skeleton } from "antd";
 import { TbEye, TbHeart, TbShoppingBag } from "react-icons/tb";
 import currency from "currency.js";
 
-function Products({data,isLoading,isError, error,language,limit=15}) {
+function Products({data,isLoading,isError, error,language,limit=15,addToCart}) {
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const formatPrice = (price) => {
@@ -19,6 +19,10 @@ function Products({data,isLoading,isError, error,language,limit=15}) {
   }
   if (isError) {
     return <div>{error?.message}</div>;
+  }
+
+  const addCart = ()=>{
+
   }
 
   return (
@@ -69,7 +73,7 @@ function Products({data,isLoading,isError, error,language,limit=15}) {
                     <div>
                       <TbHeart className="text-gray-800 size-6 cursor-pointer" />
                     </div>
-                    <div>
+                    <div onClick={() => addToCart(el._id)}>
                       <TbShoppingBag className="text-gray-800 size-6 cursor-pointer" />
                     </div>
                     <div>

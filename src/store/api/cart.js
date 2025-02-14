@@ -1,7 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const API = import.meta.env.VITE_API;
-const baseQuery = fetchBaseQuery({ baseUrl: `${API}` });
+const baseQuery = fetchBaseQuery({ 
+  baseUrl: `${API}` ,
+  credentials: "include",
+});
 
 export const cartApi = createApi({
   reducerPath: "cartApi",
@@ -17,7 +20,10 @@ export const cartApi = createApi({
       query: (carData) => ({
         url: "/cart",
         method: "POST",
-        body: carData,
+        body: {
+          productId: carData.productId,
+          quantity: carData.quantity,
+        },
       }),
       invalidatesTags: ["carts"],
     }),

@@ -4,11 +4,22 @@ import { useGetProductsQuery } from '../../store/api/product';
 import { useAppContext } from '../../context/AppContext';
 import Products from '../../components/Products';
 import { Link } from 'react-router-dom';
+import { useAddCartMutation } from '../../store/api/cart';
 
 function ProdactsPage() {
     const { t } = useTranslation();
       const { data, isLoading, isError, error } = useGetProductsQuery({});
       const { language } = useAppContext();
+      const [addCart ] = useAddCartMutation({})
+      
+  const addToCart = async (productId,quantity=1) => {
+    try {
+      await addCart({ productId ,quantity});
+      alert('Product added to cart');
+    } catch (error) {
+      console.error('Error adding product to cart', error);
+    }
+  }
   return <>
           <div className="container my-8">
         <div className='flex justify-between items-center mb-4'>
@@ -22,6 +33,7 @@ function ProdactsPage() {
             language={language}
             data={data?.data?.products}
             limit={8}
+            addToCart={addToCart}
              />
           </div>
   </>

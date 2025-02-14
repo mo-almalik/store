@@ -3,8 +3,13 @@ import { TbMail, TbPhone, TbUser } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 function TopNav() {
   const { t } = useTranslation();
+  const {isAuthenticated ,role} = useSelector(state=>state.auth)
+  console.log(isAuthenticated);
+  console.log(role);
+  
   return (
     <div className="w-full bg-black py-4">
       <div className="container text-white flex flex-wrap gap-3  items-center justify-between">
@@ -30,7 +35,9 @@ function TopNav() {
               <span>
                 <TbUser />
               </span>
-              <Link to={"/login"}>{t("common.login")}</Link>
+              <Link to={isAuthenticated ? "/profile" : "/login"}>
+              {isAuthenticated ? "profile" : t("common.login")}
+              </Link>
             </div>
 
             <div>

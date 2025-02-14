@@ -14,7 +14,7 @@ import { useFetchCartsQuery } from "../../store/api/cart";
 
 function Navbar() {
   const { t } = useTranslation();
-  const {data,isLoading} = useFetchCartsQuery()
+  // const {data,isLoading} = useFetchCartsQuery()
 
   
   
