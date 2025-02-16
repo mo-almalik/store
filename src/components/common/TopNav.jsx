@@ -19,12 +19,21 @@ function TopNav() {
 
   const handleLogout = async () => {
     try {
-      await dispatch(userLogout()); 
-      dispatch(logout())
-      toast.success("تم تسجيل الخروج بنجاح");
-      navigate("/"); 
+      const res = await dispatch(userLogout()); 
+      console.log(res);
+      
+
+      
+      if(res?.meta?.requestStatus === "fulfilled"){
+        dispatch(logout())
+        toast.success("تم تسجيل الخروج بنجاح");
+        navigate("/", { replace: true }); 
+      }
+        
+      
+      
     } catch (error) {
-      toast.error("فشل تسجيل الخروج. حاول مجددًا.");
+     return error
     }
   };
 

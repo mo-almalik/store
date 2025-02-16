@@ -1,36 +1,174 @@
+
+
 {
-    "common" :{
-        "name":"سمارت زون",
-        "login" :"تسجيل الدخول",
-        "search" :"بحث...",
+    "common": {
+        "name": "سمارت زون",
+        "login": "تسجيل الدخول",
+        "register": "إنشاء حساب",
+        "search": "بحث...",
         "wishlist": "المفضلة",
-        "cart":"عربة التسوق",
-        "shpoing" :"تسوق الأن",
-        "logout":"تسجيل خروج"
+        "cart": "عربة التسوق",
+        "shopping": "تسوق الآن",
+        "logout": "تسجيل الخروج",
+        "profile": "الملف الشخصي",
+        "settings": "الإعدادات",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "confirm": "تأكيد",
+        "close": "إغلاق",
+        "next": "التالي",
+        "previous": "السابق",
+        "back": "عودة"
     },
 
-    "navbar" :{
-        "home" :"الرئيسية",
-        "account":"الحساب",
-        "cart":"العربة"
+    "navbar": {
+        "home": "الرئيسية",
+        "shop": "المتجر",
+        "categories": "الأقسام",
+        "account": "الحساب",
+        "orders": "طلباتي",
+        "cart": "عربة التسوق",
+        "contact": "تواصل معنا",
+        "about": "من نحن؟"
     },
-    "hero":{
-        "title":" خطوة نحو مستقبل التسوق",
-        "free":"شحن مجاني",
-        "free-text":"توصيل سريع ومجاني لكل أنحاء البلاد",
-        "payment":"دفع آمن",
-        "payment-text":"دفع مشفر وآمن",
-        "quality":"ضمان الجودة",
-        "quality-text":"ضمان استبدال أو إرجاع خلال 14 يومًا",
-        "suport":"دعم فني 24/7",
-        "suport-text":"فريق دعم فني جاهز لمساعدتك"
+
+    "hero": {
+        "title": "خطوة نحو مستقبل التسوق",
+        "free": "شحن مجاني",
+        "free-text": "توصيل سريع ومجاني إلى جميع أنحاء البلاد",
+        "payment": "دفع آمن",
+        "payment-text": "نظام دفع مشفر وآمن",
+        "quality": "ضمان الجودة",
+        "quality-text": "ضمان استبدال أو إرجاع خلال 14 يومًا",
+        "support": "دعم فني 24/7",
+        "support-text": "فريق دعم فني جاهز لمساعدتك في أي وقت"
     },
-    "category":{
-        "all" :"الأقسام"
+
+    "category": {
+        "all": "جميع الأقسام",
+        "furniture": "الأثاث",
+        "sofa": "الأرائك",
+        "table": "الطاولات",
+        "chair": "الكراسي",
+        "bedroom": "غرف النوم",
+        "kitchen": "المطبخ",
+        "office": "المكاتب"
     },
-    "product":{
-        "title":"المنتجات",
-        "all":"عرض الكل"
+
+    "product": {
+        "title": "المنتجات",
+        "all": "عرض الكل",
+        "new-arrivals": "الوافدون الجدد",
+        "best-sellers": "الأكثر مبيعًا",
+        "price": "السعر",
+        "discount": "خصم",
+        "add-to-cart": "إضافة إلى السلة",
+        "out-of-stock": "غير متوفر",
+        "in-stock": "متوفر",
+        "reviews": "التقييمات",
+        "rating": "التقييم",
+        "description": "الوصف",
+        "related-products": "منتجات ذات صلة"
+    },
+
+    "cart": {
+        "title": "عربة التسوق",
+        "empty": "سلة التسوق فارغة!",
+        "continue-shopping": "متابعة التسوق",
+        "checkout": "إتمام الشراء",
+        "total": "الإجمالي",
+        "remove": "إزالة",
+        "quantity": "الكمية"
+    },
+
+    "checkout": {
+        "title": "إتمام الطلب",
+        "billing-details": "تفاصيل الفاتورة",
+        "shipping-address": "عنوان الشحن",
+        "payment-method": "طريقة الدفع",
+        "order-summary": "ملخص الطلب",
+        "place-order": "إتمام الطلب",
+        "success": "تمت عملية الدفع بنجاح!",
+        "error": "حدث خطأ أثناء الدفع، يرجى المحاولة لاحقًا"
+    },
+
+    "orders": {
+        "title": "طلباتي",
+        "order-number": "رقم الطلب",
+        "date": "التاريخ",
+        "status": "الحالة",
+        "total": "الإجمالي",
+        "view-details": "عرض التفاصيل",
+        "processing": "قيد التنفيذ",
+        "shipped": "تم الشحن",
+        "delivered": "تم التوصيل",
+        "canceled": "ملغي"
+    },
+
+    "auth": {
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "forgot-password": "نسيت كلمة المرور؟",
+        "reset-password": "إعادة تعيين كلمة المرور",
+        "new-user": "مستخدم جديد؟",
+        "have-account": "لديك حساب بالفعل؟",
+        "login": "تسجيل الدخول",
+        "register": "إنشاء حساب جديد"
+    },
+
+    "account": {
+        "title": "حسابي",
+        "personal-info": "المعلومات الشخصية",
+        "update-info": "تحديث المعلومات",
+        "change-password": "تغيير كلمة المرور",
+        "my-orders": "طلباتي",
+        "logout": "تسجيل الخروج"
+    },
+
+    "contact": {
+        "title": "تواصل معنا",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "message": "رسالتك",
+        "send": "إرسال",
+        "success": "تم إرسال الرسالة بنجاح!",
+        "error": "حدث خطأ أثناء إرسال الرسالة"
+    },
+
+    "faq": {
+        "title": "الأسئلة الشائعة",
+        "shipping": "كيف يتم الشحن؟",
+        "returns": "ما هي سياسة الإرجاع؟",
+        "payment": "ما طرق الدفع المتاحة؟"
+    },
+
+    "reviews": {
+        "title": "التقييمات",
+        "write-review": "اكتب تقييمًا",
+        "your-rating": "تقييمك",
+        "your-review": "رأيك",
+        "submit": "إرسال",
+        "thank-you": "شكرًا لمشاركتك رأيك!"
+    },
+
+    "notifications": {
+        "added-to-cart": "تمت إضافة المنتج إلى السلة",
+        "removed-from-cart": "تمت إزالة المنتج من السلة",
+        "order-placed": "تم تقديم الطلب بنجاح",
+        "order-canceled": "تم إلغاء الطلب",
+        "error": "حدث خطأ، يرجى المحاولة مرة أخرى"
+    },
+
+    "footer": {
+        "about-us": "من نحن",
+        "privacy-policy": "سياسة الخصوصية",
+        "terms-of-service": "شروط الخدمة",
+        "contact-us": "تواصل معنا",
+        "newsletter": "اشترك في النشرة البريدية",
+        "subscribe": "اشترك",
+        "follow-us": "تابعنا"
     },
     "about":{
         "title":" لماذا نحن؟  ",

@@ -47,21 +47,7 @@ export const userLogin = createAsyncThunk(
         const response = await authApi.get('/auth/check-auth-role');
         return response.data;
       } catch (error) {
-        if (error.response?.status === 403) {
-          try {
-            await authApi.put('/auth/refresh-token');
-            
-         
-            const retryResponse = await authApi.get('/auth/check-auth-role');
-            return retryResponse.data;
-          } catch (refreshError) {
-            console.error("Failed to refresh token:", refreshError);
-            return rejectWithValue("Session expired. Please log in again.");
-          }
-        }
-  
-      
-        const errorMessage = error.response?.data?.message || "Failed to log in";
+        const errorMessage = error.response?.data?.message || "Failed to log out";
         return rejectWithValue(errorMessage);
       }
     }
@@ -77,6 +63,7 @@ const authSlice = createSlice({
             state.user = null
             state.role = null
             localStorage.removeItem('logged_in');
+            state.isInitialized = fase;
              
         }
     },

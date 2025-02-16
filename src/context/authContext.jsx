@@ -12,17 +12,17 @@ export const AuthProvider = ({ children }) => {
 
   const localAuth = localStorage.getItem("logged_in");
 
-const handleAuth = async ()=>{
- const res =  await dispatch(checkAuth())
- console.log(res);
- 
-  
-}
+  const handleAuth = async () => {
+    const res = await dispatch(checkAuth());
+    console.log(res);
+    
+    
+  };
   useEffect(() => {
-    if (localAuth && !isAuthenticated) {
+    if (localAuth && !isAuthenticated && !isInitialized) {
       handleAuth()
     }
-  }, [localAuth]);
+  }, [localAuth,isAuthenticated,isInitialized]);
 
 
 

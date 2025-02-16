@@ -5,16 +5,16 @@ import NotFound from '../components/NotFound'
 
 function Protected({allowedRoles,children}) {
     const { isAuthenticated, role ,isInitialized,isLoading} = useAuth();
-
-    if (isLoading || !isInitialized) {
+  
+    if (isLoading) {
       return  <h1>Loading .....</h1>
     }
    
   
   
-    if (!isLoading && !isAuthenticated ) {
-      return <Navigate to="/lgoin" />;
-    }
+    if (!isAuthenticated && isInitialized) {
+      return <Navigate to="/login" />;
+   }
   
    
     if (!isAuthenticated || (allowedRoles?.length && !allowedRoles.includes(role))) {

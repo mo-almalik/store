@@ -60,8 +60,8 @@ function Hero() {
           </div>
             
             <div>
-              <h3 className="text-black text-md my-2 font-bold">{t("hero.suport")}</h3>
-              <p className="w-full text-dark text-sm">{t("hero.suport-text")}</p>
+              <h3 className="text-black text-md my-2 font-bold">{t("hero.support")}</h3>
+              <p className="w-full text-dark text-sm">{t("hero.support-text")}</p>
             </div>
           </div>
 
