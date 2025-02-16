@@ -5,7 +5,8 @@
         "search" :"search...",
         "wishlist":"wishlist",
         "cart" :"cart",
-        "shpoing" :"shpoing now"
+        "shpoing" :"shpoing now",
+        "logout" :"logout"
     },
     "navbar" :{
         "home" :"home",

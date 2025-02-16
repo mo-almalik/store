@@ -3,18 +3,21 @@ import { useAuth } from '../context/authContext'
 import { Navigate, useLocation } from 'react-router-dom'
 import NotFound from '../components/NotFound'
 
-function Protected({allowed,children}) {
-    const { isAuthenticated, role } = useAuth();
-    const location = useLocation();
-  
+function Protected({allowedRoles,children}) {
+    const { isAuthenticated, role ,isInitialized,isLoading} = useAuth();
 
-
+    if (isLoading || !isInitialized) {
+      return  <h1>Loading .....</h1>
+    }
+   
   
-    if (!isAuthenticated ) {
-      return <Navigate to="/login" state={{ from: location }} replace />;
+  
+    if (!isLoading && !isAuthenticated ) {
+      return <Navigate to="/lgoin" />;
     }
   
-    if (allowed?.length && !allowed.includes(role)) {
+   
+    if (!isAuthenticated || (allowedRoles?.length && !allowedRoles.includes(role))) {
       return <NotFound />;
     }
   

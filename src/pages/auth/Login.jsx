@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useDispatch } from "react-redux";
-import { useLoginMutation } from "../../store/api/auth/authApi";
-import { setCredentials } from "../../store/api/auth/authSlice";
 import { toast } from "react-toastify";
+import { userLogin } from "../../store/api/auth/authSlice";
+import { useAuth } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
+import { Role } from "../../utils/enum";
 
 const loginSchema = z.object({
   email: z.string().email("البريد الإلكتروني غير صالح"),
@@ -13,6 +15,7 @@ const loginSchema = z.object({
 });
 
 function Login() {
+  const {isError,isLoading} = useAuth()
   const {
     register,
     handleSubmit,
@@ -21,27 +24,39 @@ function Login() {
     resolver: zodResolver(loginSchema),
   });
 
-  const dispatch = useDispatch()
-  const [login,{isLoading,isError,error}] = useLoginMutation({})
-
+  const dispath = useDispatch()
+  const navigate = useNavigate()
   const onSubmit = async (data) => {
     try{
-        const res = await login(data).unwrap()
-        // console.log(res?.data);
-        dispatch(setCredentials(res))
-
-    }catch(err){
-        // console.error(err) 
-        toast.error(err.data?.message)
-    }
+    const res= await dispath(userLogin(data));
    
-     
+    if (res?.meta?.requestStatus === "rejected") {
+   return false
+    }
+    
+    if(res.payload?.data.userRole === Role.ADMIN || res.payload?.data.userRole === Role.STAFF){
+       toast.success("login success admin or staff")
+       localStorage.setItem('logged_in',true)
+      //  navigate('/admin')
+    }else {
+       toast.success("login success user")
+       localStorage.setItem('logged_in',true)
+      navigate('/')
+    }
+
+  }catch(e){
+   
+    return false
+  }
+
   };
+ 
+  
 
   return (
     <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-lg">
       <h2 className="text-xl font-bold mb-4">تسجيل الدخول</h2>
-      {isError && <span className="text-red-500">{error?.data?.message}</span>}
+      {isError && <span className="text-red-500">{isError}</span>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label className="block text-sm font-medium">البريد الإلكتروني</label>
@@ -64,8 +79,10 @@ function Login() {
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          disabled={isLoading}
         >
-          تسجيل الدخول
+        {isLoading ? "Loading..." : " تسجيل الدخول"}
+         
         </button>
       </form>
     </div>

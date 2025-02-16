@@ -6,20 +6,20 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/authContext";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { logout } from "../../store/api/auth/authSlice";
-import { useUserLogoutMutation } from "../../store/api/auth/authApi";
+import { logout, userLogout } from "../../store/api/auth/authSlice";
+
 
 function TopNav() {
   const { t } = useTranslation();
-  const { isAuthenticated, role } = useAuth();
-  const [userLogout, { isLoading, isError }] = useUserLogoutMutation();
+  const { isAuthenticated, role,isLoading } = useAuth();
+
   const navigate = useNavigate(); 
   const dispatch = useDispatch(); 
 
 
   const handleLogout = async () => {
     try {
-      await userLogout().unwrap(); 
+      await dispatch(userLogout()); 
       dispatch(logout())
       toast.success("تم تسجيل الخروج بنجاح");
       navigate("/"); 
@@ -65,7 +65,7 @@ function TopNav() {
                   role === 10 && "btn-warning"
                 }`}
                 onClick={handleLogout}
-                disabled={isLoading} // تعطيل الزر أثناء التحميل
+                disabled={isLoading} 
               >
                 {isLoading ? t("common.loading") : t("common.logout")}
               </button>
