@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { checkAuth, logout } from "../store/api/auth/authSlice";
+import { checkAuth, logout, userLogout } from "../store/api/auth/authSlice";
 
 const AuthContext = createContext();
 
@@ -15,6 +15,10 @@ export const AuthProvider = ({ children }) => {
   const handleAuth = async () => {
     const res = await dispatch(checkAuth());
     console.log(res);
+    if(res?.error?.message === 'Rejected'){
+      await dispatch(userLogout())
+      dispatch(logout())
+    }
     
     
   };

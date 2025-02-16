@@ -24,7 +24,7 @@ function Hero() {
               </h1>
               <h2 className="text-3xl font-medium">{t("hero.title")}</h2>
               <button className="mt-4 bg-main rounded-md p-2 px-5 text-white cursor-pointer">
-                {t("common.shpoing")}
+                {t("common.shopping")}
               </button>
             </div>
           </div>
