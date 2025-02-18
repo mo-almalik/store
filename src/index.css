@@ -8,16 +8,16 @@ html,body{
     margin: 0px;
     box-sizing: border-box;
 }
-.ltr body{
-    font-family: "Montserrat", serif;  
-    font-weight: 500;
-    
-}
-
-.rtl body{
-  font-family: "Tajawal", serif;
+.ltr {
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
+
+.rtl {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 500;
+}
+
 
 /* theme */
 @theme {

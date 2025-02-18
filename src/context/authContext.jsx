@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   const handleAuth = async () => {
     const res = await dispatch(checkAuth());
-    console.log(res);
+    // console.log(res);
     if(res?.error?.message === 'Rejected'){
       await dispatch(userLogout())
       dispatch(logout())

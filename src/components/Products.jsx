@@ -21,9 +21,7 @@ function Products({data,isLoading,isError, error,language,limit=15,addToCart}) {
     return <div>{error?.message}</div>;
   }
 
-  const addCart = ()=>{
 
-  }
 
   return (
     <>

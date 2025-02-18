@@ -5,15 +5,22 @@ import { useAppContext } from '../../context/AppContext';
 import Products from '../../components/Products';
 import { Link } from 'react-router-dom';
 import { useAddCartMutation } from '../../store/api/cart';
+import { toast } from 'react-toastify';
+import { useAuth } from '../../context/authContext';
 
 function ProdactsPage() {
     const { t } = useTranslation();
       const { data, isLoading, isError, error } = useGetProductsQuery({});
       const { language } = useAppContext();
       const [addCart ] = useAddCartMutation({})
-      
+       const {isAuthenticated} = useAuth()
   const addToCart = async (productId,quantity=1) => {
+
     try {
+       if(!isAuthenticated) {
+        toast.error(t('auth.login'))
+        return
+       }
       await addCart({ productId ,quantity});
       alert('Product added to cart');
     } catch (error) {

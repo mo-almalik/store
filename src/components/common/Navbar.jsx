@@ -55,7 +55,9 @@ function Navbar() {
             <div className="hidden md:block">
               <div className="flex items-center">
                 <div className="relative">
-                  <TbShoppingBag className="text-[#C4C4C4] rtl:-right-3  size-7" />
+                <Link to="/cart">
+                   <TbShoppingBag className="text-[#C4C4C4] rtl:-right-3  size-7" />
+                </Link>
                   {/* count cart */}
                   <div className=" absolute text-white -top-4 rtl:-right-3 ltr:right-3 w-6 h-6 rounded-full flex items-center justify-center bg-main">
                    {cartCount}
