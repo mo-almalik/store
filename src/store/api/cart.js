@@ -1,14 +1,11 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, } from "@reduxjs/toolkit/query/react";
+import baseQueryWithAuth from "../../middleware/authMiddleware";
 
-const API = import.meta.env.VITE_API;
-const baseQuery = fetchBaseQuery({ 
-  baseUrl: `${API}` ,
-  credentials: "include",
-});
+
 
 export const cartApi = createApi({
   reducerPath: "cartApi",
-  baseQuery: baseQuery,
+  baseQuery: baseQueryWithAuth,
   tagTypes: ["carts"],
   endpoints: (builder) => ({
     fetchCarts: builder.query({

@@ -1,14 +1,12 @@
-import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import baseQueryWithAuth from "../../middleware/authMiddleware";
 
 
-const API = import.meta.env.VITE_API
-const baseQuery = fetchBaseQuery({
-    baseUrl: `${API}`,
-})
+
 
 export const categoryApi = createApi({
     reducerPath :'category',
-    baseQuery,
+    baseQuery :baseQueryWithAuth,
     tagTypes:["category"],
     endpoints: (builder) => ({
         getCategories :builder.query({

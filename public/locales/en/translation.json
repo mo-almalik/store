@@ -18,19 +18,11 @@
         "close": "Close",
         "next": "Next",
         "previous": "Previous",
-        "back": "Back"
+        "back": "Back",
+        "loading": "Loading.."
     },
 
-    "navbar": {
-        "home": "Home",
-        "shop": "Shop",
-        "categories": "Categories",
-        "account": "Account",
-        "orders": "My Orders",
-        "cart": "Shopping Cart",
-        "contact": "Contact Us",
-        "about": "About Us"
-    },
+
 
     "hero": {
         "title": "A Step Towards the Future of Shopping",
@@ -70,16 +62,20 @@
         "description": "Description",
         "related-products": "Related Products"
     },
-
-    "cart": {
-        "title": "Shopping Cart",
-        "empty": "Your cart is empty!",
-        "continue-shopping": "Continue Shopping",
-        "checkout": "Checkout",
-        "total": "Total",
-        "remove": "Remove",
-        "quantity": "Quantity"
-    },
+"cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty!",
+    "continue-shopping": "Continue Shopping",
+    "checkout": "Checkout",
+    "total": "Total",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "discount": "Discount",
+    "total-price": "Total Price",
+    "total-items":" Total Items"
+},
 
     "checkout": {
         "title": "Checkout",
@@ -113,7 +109,8 @@
         "new-user": "New User?",
         "have-account": "Already have an account?",
         "login": "Login",
-        "register": "Create New Account"
+        "register": "Create New Account",
+        "auth":"Please login "
     },
 
     "account": {

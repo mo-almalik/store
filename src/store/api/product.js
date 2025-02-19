@@ -1,15 +1,12 @@
 import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import baseQueryWithAuth from "../../middleware/authMiddleware";
 
 
-const API = import.meta.env.VITE_API
-const baseQuery = fetchBaseQuery({
-    baseUrl: `${API}`,
-})
 
 
 export const productApi = createApi({
   reducerPath:"product",
-  baseQuery,
+  baseQuery:baseQueryWithAuth,
   tagTypes:["product"],
   endpoints:(builder)=>({
     getProducts :builder.query({

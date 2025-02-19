@@ -1,16 +1,12 @@
-import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import baseQueryWithAuth from "../../middleware/authMiddleware";
 
 
-const API = import.meta.env.VITE_API
-const baseQuery = fetchBaseQuery({
-    baseUrl: `${API}`,
-    credentials: "include",
 
-})
 
 export const userApi = createApi({
   reducerPath:"user",
-  baseQuery,
+  baseQuery:baseQueryWithAuth,
   tagTypes:["user"],
   endpoints:(builder)=>({
     getProfile:builder.query({
