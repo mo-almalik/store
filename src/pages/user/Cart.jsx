@@ -45,15 +45,15 @@ function Cart() {
   <Helmet>
     <title>{t('cart.title')}</title>
   </Helmet>
-  <div className='container my-10'>
+  <div className='container my-10 '>
    <div className='flex items-center justify-start gap-x-3'> <h2 className='title'>{t('cart.title')} </h2> - <h4> {t('cart.total-items')} ({cartItems?.length})</h4></div>
     {isLoading && <Loading />}
    
  <div className='flex flex-col md:flex-row  items-start justify-between w-full my-8 gap-5'>
-  <div className='w-full md:w-[70%] '>
-    <div className='flex flex-col gap-8'>
+  <div className='w-full md:w-[70%]  overflow-y-auto  max-h-[70vh] hidden-scrollbar'>
+    <div className='flex flex-col gap-8 '>
         {cartItems?.map((el,index)=>(
-          <div key={index} className='flex  flex-col md:flex-row items-start md:items-center gap-4 justify-between'>
+          <div key={index} className='flex  flex-col md:flex-row items-start md:items-center gap-4 justify-between '>
             
             <div className='flex items-start gap-5'>
             <img src={`${baseUrl}/${el.product.coverImage}`} alt={el.product.title} className='w-28 h-28 object-cover rounded-md' />
@@ -82,9 +82,19 @@ function Cart() {
   </div>
 
 
-  {/* sumary cart */}
-  <div className=' w-full  md:w-[30%] border border-gray-100 rounded-md p-3'>
-    <h2>{t('checkout.order-summary')}</h2>
+  {/* summary cart */}
+  <div className=' w-full  md:w-[30%] sticky top-5 border border-gray-100 rounded-md p-3 '>
+    <h2 className='text-xl text-gray-800'>{t('checkout.order-summary')}</h2>
+
+    <div className='flex items-center justify-start w-full my-3  border border-gray-200 rounded-md p-1'>
+      <input type='text' placeholder={t('cart.coupon-text')} className='  p-2 px-5 w-full outline-none' />
+      <button
+       className=' bg-main  rounded-md p-2.5 border px-5 text-white cursor-pointer  '>
+       {t('cart.apply')}
+       </button>
+    </div>
+
+
   </div>
  </div>
      

@@ -86,7 +86,9 @@
         "tax": "ضريبة",
         "discount": "خصم",
         "total-price": "السعر الكلي",
-        "total-items": " عدد المنتجات"
+        "total-items": " عدد المنتجات",
+        "coupon-text":" كود الخصم",
+        "apply":"تطبيق"
     },
 
     "checkout": {

@@ -28,7 +28,7 @@ export const AppProvider = ({ children }) => {
   const theme = {
     token: {
       fontFamily:
-        direction === "rtl" ? "Tajawal, sans-serif" :  "Poppins serif",
+        direction === "rtl" ? "Noto Kufi Arabic serif" :  "Poppins serif",
     },
   };
 
@@ -55,7 +55,7 @@ export const AppProvider = ({ children }) => {
           theme={"light"}
           transition={Bounce}
           style={{
-    fontFamily: direction === "rtl" ? "Tajawal, sans-serif" :  "Poppins serif",
+    fontFamily: direction === "rtl" ? "Noto Kufi Arabic serif" :  "Poppins serif",
   }}
         />
         {children}

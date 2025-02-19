@@ -74,7 +74,9 @@
     "tax": "Tax",
     "discount": "Discount",
     "total-price": "Total Price",
-    "total-items":" Total Items"
+    "total-items":" Total Items",
+    "coupon-text":" Coupon Code ",
+    "apply":" Apply"
 },
 
     "checkout": {
