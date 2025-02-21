@@ -3,6 +3,7 @@ import React from "react";
 import { Image, Skeleton } from "antd";
 import { TbEye, TbHeart, TbShoppingBag } from "react-icons/tb";
 import currency from "currency.js";
+import { Link } from "react-router-dom";
 
 function Products({data,isLoading,isError, error,language,limit=15,addToCart}) {
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -75,7 +76,9 @@ function Products({data,isLoading,isError, error,language,limit=15,addToCart}) {
                       <TbShoppingBag className="text-gray-800 size-6 cursor-pointer" />
                     </div>
                     <div>
+                    <Link to={`/product/${el.slug}`}>
                       <TbEye className="text-gray-800 size-6 cursor-pointer" />
+                      </Link>
                     </div>
                   </div>
                 </div>

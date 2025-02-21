@@ -18,9 +18,14 @@ export const productApi = createApi({
                 return `/products?${params.toString()}`;
         },
         providesTags: ["product"],
-    })
+    }),
+
+    getProduct: builder.query({
+        query: (slug) => `/products/${slug}`,
+        providesTags: ["product"],
+    }),
   })
 })
 
 
-export const {useGetProductsQuery} = productApi
+export const {useGetProductsQuery,useGetProductQuery} = productApi

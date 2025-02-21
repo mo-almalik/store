@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import Loading from '../../components/Loading'
 import { useAppContext } from '../../context/AppContext'
 import currency from "currency.js";
+import { Divider } from 'antd'
 
 function Cart() {
     const formatPrice = (price) => {
@@ -49,7 +50,7 @@ function Cart() {
    <div className='flex items-center justify-start gap-x-3'> <h2 className='title'>{t('cart.title')} </h2> - <h4> {t('cart.total-items')} ({cartItems?.length})</h4></div>
     {isLoading && <Loading />}
    
- <div className='flex flex-col md:flex-row  items-start justify-between w-full my-8 gap-5'>
+ <div className='flex flex-col md:flex-row  items-start justify-between w-full my-8 gap-10'>
   <div className='w-full md:w-[70%]  overflow-y-auto  max-h-[70vh] hidden-scrollbar'>
     <div className='flex flex-col gap-8 '>
         {cartItems?.map((el,index)=>(
@@ -94,7 +95,25 @@ function Cart() {
        </button>
     </div>
 
+<div className='flex flex-col gap-4 my-8 '>
+<div className='w-full flex items-center justify-between'>
+      <h3 className='text-sm text-gray-800 '>{t('cart.subtotal')}</h3>
+      <h3 className='text-sm text-gray-800'>{formatPrice(data?.data.totalPrice)}</h3>
+    </div>
 
+    <div className='w-full flex items-center justify-between'>
+      <h3 className='text-sm text-gray-800'>{t('cart.discount')}</h3>
+      <h3 className='text-sm text-gray-800'>{formatPrice(data?.data.totalPriceAfterDiscount)}</h3>
+    </div>
+    <Divider />
+    <div className='w-full flex items-center justify-between font-bold '>
+      <h3 className='text-md text-gray-800 '>{t('cart.total')}</h3>
+      <h3 className='text-md text-gray-800'>{formatPrice(data?.data.totalPrice)}</h3>
+    </div>
+    
+</div>
+
+<button className='cursor-pointer bg-main hover:bg-main/90 text-white font-bold text-sx w-full p-4 rounded-md'>{t('cart.checkout')}</button>
   </div>
  </div>
      

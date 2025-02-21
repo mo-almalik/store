@@ -21,7 +21,16 @@
         "back": "Back",
         "loading": "Loading.."
     },
-
+    "navbar": {
+        "home": "Home",
+        "shop": " shop",
+        "categories": " categories",
+        "account": " my account",
+        "orders": " my orders",
+        "cart": "Shopping Cart",
+        "contact": "contact us  ",
+        "about": " about us "
+    },
 
 
     "hero": {
