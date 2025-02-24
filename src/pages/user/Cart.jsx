@@ -1,5 +1,5 @@
-import React from 'react'
-import { useFetchCartsQuery } from '../../store/api/cart'
+import React, { useState } from 'react'
+import { useApplyCouponMutation, useClearCartMutation, useDeleteCartMutation, useFetchCartsQuery, useUpdateCartMutation } from '../../store/api/cart'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/authContext'
 import { Helmet } from 'react-helmet'
@@ -8,20 +8,86 @@ import Loading from '../../components/Loading'
 import { useAppContext } from '../../context/AppContext'
 import currency from "currency.js";
 import { Divider } from 'antd'
+import { LuLoaderCircle, LuTrash2 } from 'react-icons/lu'
 
-function Cart() {
     const formatPrice = (price) => {
       return currency(price, { symbol: "SAR ", precision: 0 }).format();
     };
+function Cart() {
   const baseUrl = import.meta.env.VITE_BASE_URL;
-
+  const [couponCode, setCouponCode] = useState("");
     const {isAuthenticated} = useAuth()
     const {language} = useAppContext()
     const {t} = useTranslation()
     const { data, isLoading ,isError,error,isFetching } = useFetchCartsQuery(undefined, {
         skip: !isAuthenticated,  
       });
+      const [updateCart ,{}] = useUpdateCartMutation()
+      const [deleteCart ,{}] = useDeleteCartMutation()
+      const [clearCart ,{}] = useClearCartMutation()
+      const [applyCoupon ,{isError:couponError,error:couponErrorText,isLoading:couponLoading}] = useApplyCouponMutation()
     const cartItems = data?.data.items
+ 
+    
+
+    const decrease = async (data)=>{
+      if(data.quantity === 1) {
+          await deleteCart(data.product._id,)
+      }
+      
+      try{
+      await  updateCart({ productId: data.product._id, quantity: data.quantity - 1 })
+      }catch(err){
+        console.error(err)
+      }
+    }
+
+    const increase = async (data)=>{
+      try{
+        await updateCart({ productId: data.product._id, quantity: data.quantity + 1 })
+      }catch(err){
+        console.error(err)
+      }
+    }
+
+  const removeItem = async(id)=>{
+    try{
+      await deleteCart(id.product._id)
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  const handleClearCart = async()=>{
+    try{
+       await clearCart().unwrap()
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  const applyCouponCode = async () => {
+    if (!couponCode) return;
+    try {
+      await applyCoupon({ code: couponCode }).unwrap();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+
+ 
+   if (cartItems?.length === 0) {
+     return (
+         <div className='flex flex-col items-center justify-center gap-4  min-h-[70vh]'>
+             <h3>{t('cart.empty')}</h3>
+             <Link to={'/'} className='bg-main text-white py-2 px-4 rounded-md'>{t('cart.continue-shopping')}</Link>
+         </div>
+     );
+    
+   }
+
     
 
     if (!isAuthenticated && !isFetching && !isLoading) {
@@ -32,7 +98,7 @@ function Cart() {
           </div>
       );
   }
- console.log(data?.data);
+ 
  
    
    if(isError && error.status === 404 ) {
@@ -41,6 +107,8 @@ function Cart() {
             <Link to={'/'} className='bg-main text-white py-2 px-4 rounded-md'>{t('cart.continue-shopping')}</Link>
         </div>
    }
+
+   
     
   return <>
   <Helmet>
@@ -68,13 +136,13 @@ function Cart() {
             <div className='flex items-center gap-x-5 '>
             <div className='flex items-center gap-3'>
             <span>{t('cart.quantity')}</span>
-              <button onClick={()=>console.log('decrease')} className='bg-gray-400 cursor-pointer text-white h-8 w-8 flex items-center justify-center rounded-md'>-</button>
+              <button onClick={()=>decrease(el)} className='bg-red-400 cursor-pointer text-white h-8 w-8 flex items-center justify-center rounded-md'>-</button>
                 <span>{el.quantity}</span>
-              <button onClick={()=>console.log('increase')} className='bg-main cursor-pointer text-white h-8 w-8 flex items-center justify-center rounded-md'>+</button>
+              <button onClick={()=>increase(el)} className='bg-main cursor-pointer text-white h-8 w-8 flex items-center justify-center rounded-md'>+</button>
               </div>
 
             <div>
-              <button onClick={()=>console.log('remove')} className='bg-gray-100 cursor-pointer text-gray-600 h-8 px-5 rounded-md'>{t('cart.remove')}</button>
+              <button onClick={()=>removeItem(el)} className='bg-gray-100 group transition-colors duration-200 hover:bg-gray-200 cursor-pointer text-gray-600 h-8 w-8 flex items-center justify-center rounded-md'><LuTrash2 className='group-hover:text-red-400'  /></button>
             </div>
             </div>
           </div>
@@ -86,12 +154,21 @@ function Cart() {
   {/* summary cart */}
   <div className=' w-full  md:w-[30%] sticky top-5 border border-gray-100 rounded-md p-3 '>
     <h2 className='text-xl text-gray-800'>{t('checkout.order-summary')}</h2>
-
+ {couponError && <span className='text-red-500'>{couponErrorText?.data.message}</span>}
     <div className='flex items-center justify-start w-full my-3  border border-gray-200 rounded-md p-1'>
-      <input type='text' placeholder={t('cart.coupon-text')} className='  p-2 px-5 w-full outline-none' />
+     
+      <input type='text'
+       placeholder={t('cart.coupon-text')}
+       value={couponCode}
+       onChange={(e) => setCouponCode(e.target.value)}
+       className='  p-2 px-5 w-full outline-none' />
       <button
-       className=' bg-main  rounded-md p-2.5 border px-5 text-white cursor-pointer  '>
-       {t('cart.apply')}
+      onClick={applyCouponCode}
+       className=' bg-main  rounded-md p-2.5 border px-5 text-white cursor-pointer  text-center' disabled={couponLoading}>
+       {couponLoading ? <div>
+         <LuLoaderCircle className='animate-spin text-2xl text-white' />
+       </div> :  t('cart.apply')}
+      
        </button>
     </div>
 
@@ -103,17 +180,24 @@ function Cart() {
 
     <div className='w-full flex items-center justify-between'>
       <h3 className='text-sm text-gray-800'>{t('cart.discount')}</h3>
-      <h3 className='text-sm text-gray-800'>{formatPrice(data?.data.totalPriceAfterDiscount)}</h3>
+      <h3 className='text-sm text-gray-800'>{formatPrice(data?.data.discount)}</h3>
     </div>
     <Divider />
     <div className='w-full flex items-center justify-between font-bold '>
       <h3 className='text-md text-gray-800 '>{t('cart.total')}</h3>
+      {data?.data.totalPriceAfterDiscount !== 0 ?  
+      <h3 className='text-md text-gray-800'>{formatPrice(data?.data.totalPriceAfterDiscount)}</h3>
+      :
       <h3 className='text-md text-gray-800'>{formatPrice(data?.data.totalPrice)}</h3>
+       }
+
+     
     </div>
     
 </div>
 
 <button className='cursor-pointer bg-main hover:bg-main/90 text-white font-bold text-sx w-full p-4 rounded-md'>{t('cart.checkout')}</button>
+<button onClick={()=>handleClearCart()} className='cursor-pointer bg-gray-200 mt-3  text-gray-600 font-bold text-sx w-full p-4 rounded-md'>{t('cart.clear-cart')}</button>
   </div>
  </div>
      

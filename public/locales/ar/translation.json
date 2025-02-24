@@ -88,7 +88,9 @@
         "total-price": "السعر الكلي",
         "total-items": " عدد المنتجات",
         "coupon-text":" كود الخصم",
-        "apply":"تطبيق"
+        "apply":"تطبيق",
+        "clear-cart" :"افراغ السلة",
+        "add-cart":"اضافة الي السلة"
     },
 
     "checkout": {

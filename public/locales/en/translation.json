@@ -85,7 +85,9 @@
     "total-price": "Total Price",
     "total-items":" Total Items",
     "coupon-text":" Coupon Code ",
-    "apply":" Apply"
+    "apply":" Apply",
+    "clear-cart" :" Clear Cart",
+    "add-cart":" Add Cart"
 },
 
     "checkout": {
