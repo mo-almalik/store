@@ -2,6 +2,7 @@ import React from "react";
 import assets from "../utils/assets";
 import { useTranslation } from "react-i18next";
 import { TbAward, TbLockAccess, TbReplace, TbTruckDelivery } from "react-icons/tb";
+import { Link } from "react-router-dom";
  
 
 function Hero() {
@@ -23,15 +24,18 @@ function Hero() {
                 {t("common.name")}
               </h1>
               <h2 className="text-3xl font-medium">{t("hero.title")}</h2>
-              <button className="mt-4 bg-main rounded-md p-2 px-5 text-white cursor-pointer">
+              <Link to='/products'>
+                 <button className="mt-4 bg-main rounded-md p-2 px-5 text-white cursor-pointer">
                 {t("common.shopping")}
               </button>
+              </Link>
+             
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-light py-8 ">
+      <div className="bg-light py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 container text-center gap-5">
           <div className="flex flex-col items-center ">
           <div className="bg-main/90 p-2 rounded-lg text-light shadow-main/50 drop-shadow-lg">

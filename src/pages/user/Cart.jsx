@@ -107,8 +107,6 @@ function Cart() {
             <Link to={'/'} className='bg-main text-white py-2 px-4 rounded-md'>{t('cart.continue-shopping')}</Link>
         </div>
    }
-
-   
     
   return <>
   <Helmet>

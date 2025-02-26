@@ -37,7 +37,7 @@ function Login() {
     if(res.payload?.data.userRole === Role.ADMIN || res.payload?.data.userRole === Role.STAFF){
        toast.success("login success admin or staff")
        localStorage.setItem('logged_in',true)
-      //  navigate('/admin')
+       navigate('/dashboard')
     }else {
        toast.success("login success user")
        localStorage.setItem('logged_in',true)

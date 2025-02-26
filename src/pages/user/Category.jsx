@@ -2,6 +2,8 @@ import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 import { useGetCategoriesQuery } from '../../store/api/category';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+
 
 function Category() {
     const baseUrl = import.meta.env.VITE_BASE_URL
@@ -30,13 +32,16 @@ function Category() {
 
 
     return (
-        <div key={index} className=' rounded-md'>
-            {/* <div>
-                <img src={imageUrl} alt={el.title[language]}  className='rounded-md h-[250px]' />
-            </div> */}
-            <div className='border border-gray-200 p-2 rounded-4xl px-4 hover:bg-main/10 transition-colors duration-100 hover:border-main/10 cursor-pointer'>
+        <div key={index} className=' border border-gray-200 rtl:pl-3  rtl:pr-1 ltr:pr-3  py-1 ltr:pl-1  rounded-4xl hover:bg-main/10 transition-colors duration-100 hover:border-main/10 cursor-pointer'>
+           
+            <Link to={`/category/${el.slug}`}>
+            <div className=' flex items-center justify-center gap-x-3'>
+            <div>
+       <img  src={imageUrl}  className='rounded-full w-12 h-12 object-center' />
+       </div>
                 <h3>{el.title[language]}</h3>
             </div>
+            </Link>
         </div>
     );
 })}
