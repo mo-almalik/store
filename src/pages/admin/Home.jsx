@@ -2,7 +2,10 @@ import React from 'react'
 
 function Home() {
   return (
-    <div>Admin Home</div>
+    <div className='flex flex-col h-auto '>
+      <h1 className=''>Home Page</h1>
+      
+    </div>
   )
 }
 

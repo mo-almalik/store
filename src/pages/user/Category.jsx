@@ -3,7 +3,7 @@ import { useAppContext } from '../../context/AppContext';
 import { useGetCategoriesQuery } from '../../store/api/category';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
+import {Skeleton} from "antd"
 
 function Category() {
     const baseUrl = import.meta.env.VITE_BASE_URL
@@ -14,7 +14,12 @@ function Category() {
 
   
     if (isLoading) {
-        return <div>Loading...</div>;
+        return  [...Array(5)].map((_, index) => (
+            <div key={index} className='border border-gray-200 py-1 px-3 rounded-4xl flex items-center gap-x-3 w-40'>
+                <Skeleton.Avatar active size={48} shape="circle" />
+                <Skeleton.Input active size="small" style={{ width: 80 }} />
+            </div>
+        ))
     }
 
     if (isError) {
