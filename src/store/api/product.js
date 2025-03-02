@@ -24,6 +24,7 @@ export const productApi = createApi({
         query: (slug) => `/products/${slug}`,
         providesTags: ["product"],
     }),
+
   })
 })
 

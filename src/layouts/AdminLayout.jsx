@@ -7,7 +7,7 @@ import AdminFooter from "../components/common/AdminFooter";
 function AdminLayout() {
   return (
     <>
-      <div className="bg-[#F5F7FA] min-h-screen w-full">
+      <div className="bg-[#FAFAFA] min-h-screen w-full">
       <div className="flex h-screen overflow-hidden ">
        <AdminSideBar />
        <div className="flex  flex-col w-full overflow-auto justify-between">

@@ -40,7 +40,7 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider value={value}>
-      <ConfigProvider direction={direction} theme={theme}>
+      <ConfigProvider direction={direction} theme={theme} >
         <ToastContainer
           className={`toast-container ${direction}`}
           position={direction === "rtl" ? "top-right" : "top-left"}

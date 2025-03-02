@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { userLogin } from "../../store/api/auth/authSlice";
 import { useAuth } from "../../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Role } from "../../utils/enum";
 
 const loginSchema = z.object({
@@ -85,6 +85,9 @@ function Login() {
          
         </button>
       </form>
+
+      {/* create Account */}
+      <Link to='/register'>انشي حساب</Link>
     </div>
   );
 }

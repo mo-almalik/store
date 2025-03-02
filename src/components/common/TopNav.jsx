@@ -17,7 +17,9 @@ function TopNav() {
 
   const handleLogout = async () => {
     try {
-      const res = await dispatch(userLogout()); 
+      const res = await dispatch(userLogout()).unwrap(); 
+      
+      
 
       if (res?.meta?.requestStatus === "fulfilled") {
         await dispatch(logout());
@@ -26,6 +28,10 @@ function TopNav() {
       }
     } catch (error) {
       console.error("خطأ أثناء تسجيل الخروج:", error);
+      dispatch(logout())
+      navigate("/", { replace: true }); 
+      window.location.reload()
+
     }
   };
 

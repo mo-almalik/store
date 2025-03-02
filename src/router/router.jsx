@@ -4,7 +4,8 @@ import AdminRouter from "./AdminRouter";
 
 const Routers = createBrowserRouter ([
     ...UserRouter,
-    ...AdminRouter
+    ...AdminRouter,
+    
 ])
 
 export default Routers
