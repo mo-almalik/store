@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
 
 @import "tailwindcss";
-
+@plugin 'tailwind-scrollbar';
 html,body{
   padding: 0px;
     margin: 0px;
@@ -26,6 +26,7 @@ html,body{
   --color-black :#161616 ;
   --color-dark :#32353C;
   --color-light:#FBFBFB;
+  
 }
 
 @utility container  {
@@ -49,3 +50,4 @@ button {
 .hidden-scrollbar {
   scrollbar-width: none;
 }
+

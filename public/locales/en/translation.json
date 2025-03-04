@@ -225,6 +225,24 @@
         "total_orders": "Total Orders",
         "total_sales": "Total Sales",
         "recent_orders": "Recent Orders",
-        "stock_status": "Stock Status"
+        "stock_status": "Stock Status",
+
+        "product": {
+            "name": " Product Name",
+            "price": "Price",
+            "quantity": " Quantity",
+            "status": " Status",
+            "actions": " Actions",
+            "create": " Add Product",
+            "edit": " Edit Product  ",
+            "delete": " Delete Product",
+            "view": " View Product",
+            "save": " Save Product",
+            "cancel": " Cancel Product",
+            "image": " Image ",
+            "description": "  Description ",
+            "category": " Category ",
+            "view-all":" View All"
+        }
     }
 }

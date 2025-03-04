@@ -227,7 +227,25 @@
         "total_orders": "إجمالي الطلبات",
         "total_sales": "إجمالي المبيعات",
         "recent_orders": "الطلبات الأخيرة",
-        "stock_status": "حالة المخزون"
+        "stock_status": "حالة المخزون",
+
+        "product": {
+            "name": "الاسم",
+            "price": "السعر",
+            "quantity": "الكمية",
+            "status": "الحالة",
+            "actions": "الإجراءات",
+            "create": "اضافة  منتج ",
+            "edit": "تعديل المنتج",
+            "delete": "حذف المنتج",
+            "view": "عرض المنتج",
+            "save": "حفظ المنتج",
+            "cancel": "إلغاء",
+            "image": "صورة المنتج",
+            "description": "الوصف",
+            "category": "الفئة",
+            "view-all":"عرض المنتجات"
+        }
       }
       
  
