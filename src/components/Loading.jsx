@@ -1,16 +1,12 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
 import { LuLoaderCircle } from "react-icons/lu";
 
-function Loading() {
-    const {t} = useTranslation()
-  return <>
-  <div className='min-h-screen flex justify-center items-center'>
-     <LuLoaderCircle className='animate-spin text-2xl text-main' />
-    {/* <p className='text-center text-sm text-main'>{t('common.loading')}</p> */}
-  </div>
-
-  </>
+function Loading({ color = "text-main", size = "text-2xl", className = "" ,main}) {
+  return (
+   <div className={main}>
+     <LuLoaderCircle className={`animate-spin ${size} ${color} ${className}`} />
+   </div>
+  );
 }
 
-export default Loading
+export default Loading;

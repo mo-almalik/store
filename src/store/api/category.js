@@ -18,9 +18,36 @@ export const categoryApi = createApi({
                 return `/categories?${params.toString()}`;
             },
             providesTags: ["category"],
-        })
+        }),
+        getCategory: builder.query({
+            query: (slug) => `/categories/${slug}`,
+            providesTags: ["category"],
+        }),
+        createCategory: builder.mutation({
+            query: (categoryData) => ({
+                url: "/categories",
+                method: "POST",
+                body: categoryData,
+            }),
+            invalidatesTags: ["category"],
+        }),
+        updateCategory: builder.mutation({}),
+        deleteCategory: builder.mutation({
+            query: (slug) => ({
+                url: `/categories/${slug}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["category"],
+        }),
     })
 
 })
 
-export const {useGetCategoriesQuery} = categoryApi
+export const {
+    useGetCategoriesQuery,
+    useGetCategoryQuery,
+    useCreateCategoryMutation,
+    useUpdateCategoryMutation,
+    useDeleteCategoryMutation,
+
+} = categoryApi

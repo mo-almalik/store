@@ -13,7 +13,7 @@ function AdminLayout() {
        <div className="flex  flex-col w-full overflow-auto justify-between">
        <div>
        <AdminHeader />
-       <div className="py-4 px-10">
+       <div className="py-4 px-10 mt-5">
        <Outlet />
        </div>
        </div>

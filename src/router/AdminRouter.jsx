@@ -7,6 +7,7 @@ import NotFound from "../components/NotFound";
 import Customers from "../pages/admin/Customers";
 import Users from "../pages/admin/Users";
 import Roles from "../pages/admin/Roles";
+import AddProduct from "../pages/admin/AddProduct";
 
  
 
@@ -18,8 +19,9 @@ const AdminRouter = [
     {path:'/dashboard',element :<Protected><AdminLayout /></Protected>, children:[
         {index:true,element:<Home />},
         {path:"products",element: <Suspense fallback={<Loading/>}><Products /></Suspense>},
+        {path:"products/add",element:<AddProduct />},
         {path:"orders",element: <Suspense fallback={<Loading/>}><Orders /></Suspense>},
-        {path:"categories",element: <Suspense fallback={<Loading/>}><Categories /></Suspense>},
+        {path:"categories",element: <Suspense fallback={<Loading main={'flex items-center  justify-center'} />}><Categories /></Suspense>},
         
         {path:"customers",element:<Customers />},
         {path:"users",element:<Users />},

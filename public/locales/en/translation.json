@@ -19,7 +19,11 @@
         "next": "Next",
         "previous": "Previous",
         "back": "Back",
-        "loading": "Loading.."
+        "loading": "Loading..",
+        "actions":" Actions",
+        "add": "Add",
+        "update": "Update",
+         "created_at":" Created At"
     },
     "navbar": {
         "home": "Home",
@@ -166,7 +170,8 @@
         "removed-from-cart": "Product removed from cart",
         "order-placed": "Order placed successfully",
         "order-canceled": "Order canceled",
-        "error": "An error occurred, please try again"
+        "error": "An error occurred, please try again",
+        "delete_message" :" Deleted successfully"
     },
 
     "footer": {
@@ -207,7 +212,7 @@
         "users": "Users",
         "roles": "Roles & Permissions",
         "logout": "Logout",
-        "add_new": "Add New",
+        "add_new": "Add",
         "edit": "Edit",
         "delete": "Delete",
         "view": "View",
@@ -226,6 +231,7 @@
         "total_sales": "Total Sales",
         "recent_orders": "Recent Orders",
         "stock_status": "Stock Status",
+        "add-category" :" Add Category",
 
         "product": {
             "name": " Product Name",
@@ -243,6 +249,21 @@
             "description": "  Description ",
             "category": " Category ",
             "view-all":" View All"
+        },
+        "validation":{
+            "required": "This field is required",
+            "min": "This field must be at least {0} characters long",
+            "max": "This field must be at most {0} characters long",
+            "email": "Please enter a valid email address",
+            "url": "Please enter a valid URL",
+            "number": "Please enter a valid number",
+            "digits": "Please enter only digits"
+          
         }
+
+    },
+    "form":{
+        "category_name":" category name",
+        "category_image": "category image"
     }
 }
